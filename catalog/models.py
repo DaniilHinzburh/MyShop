@@ -48,18 +48,18 @@ class Order(models.Model):
     description_creation_date = models.DateTimeField(auto_now_add=True)
     delivery_type = models.CharField(max_length=255)
     delivery_address = models.TextField()
-    check = models.OneToOneField("Check", on_delete=models.CASCADE, null=True, blank=True)
+    check_detail = models.OneToOneField("Check", on_delete=models.CASCADE, null=True, blank=True)
     status = models.CharField(max_length=255, choices=[
-        ('open',),
-        ('closed',),
-        ('sent',),
-        ('received',),
-        ('returned',),
+        ("open", "open"),
+        ("closed", "closed"),
+        ("sent", "sent"),
+        ("received", "received"),
+        ("returned", "returned"),
     ])
 
 
 class Check(models.Model):
-    order = models.OneToOneField(Order, on_delete=models.CASCADE)
+    order_detail = models.OneToOneField(Order, on_delete=models.CASCADE, related_name="check_order")
     buyer = models.ForeignKey(Buyer, on_delete=models.CASCADE, related_name="checks")
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     creation_date = models.DateTimeField(auto_now_add=True)
