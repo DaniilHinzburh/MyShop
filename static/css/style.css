@@ -1,0 +1,32 @@
+.div_test_block {
+    height: 10vh;
+    width: 10vh;
+}
+
+.div_row {
+    display: flex;
+    justify-content: left;
+}
+
+.div_colum {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.div_topbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
