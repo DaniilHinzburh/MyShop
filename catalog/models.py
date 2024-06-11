@@ -29,14 +29,9 @@ class Category(models.Model):
     name = models.CharField(max_length=255)
 
 
-class Subcategory(models.Model):
-    name = models.CharField(max_length=255)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="subcategories")
-
-
 class Product(models.Model):
     name = models.CharField(max_length=255)
-    subcategory_list = models.ManyToManyField(Subcategory)
+    category_list = models.ManyToManyField(Category)
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
     description = models.TextField()
     warranty_period = models.FloatField()
