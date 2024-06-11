@@ -31,9 +31,9 @@ class Category(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
-    category_list = models.ManyToManyField(Category)
-    manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
-    description = models.TextField()
+    category_list = models.ManyToManyField(Category, null=True, blank=True)
+    manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
     warranty_period = models.FloatField()
 
 
