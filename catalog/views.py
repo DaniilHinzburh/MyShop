@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views import generic
+from django.views.generic import TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Buyer, Operator, Manufacturer, Category, Subcategory, Product, Order, Check
 
-# Create your views here.
+
+class IndexView(TemplateView):
+    template_name = "catalog/index.html"
